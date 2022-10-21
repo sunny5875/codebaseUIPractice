@@ -1,0 +1,14 @@
+disabled_rules:
+# 추가한 rules
+- todo
+- line_length
+- identifier_name #상수땜에 해제
+- leading_whitespace
+- trailing_whitespace
+- type_body_length #분기가 많아서 지금은 해제
+- function_body_length #분기가 많아서 지금은 해제
+- vertical_whitespace #함수사이 줄
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+- Pods
+- Libraries
