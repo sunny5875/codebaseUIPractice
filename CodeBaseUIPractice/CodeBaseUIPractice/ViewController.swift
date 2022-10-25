@@ -114,7 +114,7 @@ class ViewController: UIViewController {
 }
 
 
-
+/*
 struct ViewControllerRepresentable: UIViewControllerRepresentable {
     typealias UIViewControllerType = ViewController
 
@@ -132,3 +132,4 @@ struct ViewPreview: PreviewProvider {
         ViewControllerRepresentable()
     }
 }
+*/
