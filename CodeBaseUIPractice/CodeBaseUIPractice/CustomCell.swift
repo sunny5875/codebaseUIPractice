@@ -32,7 +32,7 @@ class CustomCell: UITableViewCell {
     
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "ETH 크립토1"
+        label.text = "이름"
         label.textColor = .black
         label.font = .systemFont(ofSize: 20)
         return label

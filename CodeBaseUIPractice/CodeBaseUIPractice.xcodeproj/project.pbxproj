@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D60A8CDB290779CF00713DE3 /* KeychainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60A8CDA290779CF00713DE3 /* KeychainRepository.swift */; };
-		D60A8CDD29077B2400713DE3 /* GoogleService-Info (1).plist in Resources */ = {isa = PBXBuildFile; fileRef = D60A8CDC29077B2400713DE3 /* GoogleService-Info (1).plist */; };
 		D60A8CDF29077D3300713DE3 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60A8CDE29077D3300713DE3 /* SplashScreenViewController.swift */; };
+		D60A8CE12907D34A00713DE3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D60A8CE02907D34A00713DE3 /* GoogleService-Info.plist */; };
 		D6F3AD1528F7F0FD00EF55B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F3AD1428F7F0FD00EF55B1 /* AppDelegate.swift */; };
 		D6F3AD1728F7F0FD00EF55B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F3AD1628F7F0FD00EF55B1 /* SceneDelegate.swift */; };
 		D6F3AD1928F7F0FD00EF55B1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F3AD1828F7F0FD00EF55B1 /* ViewController.swift */; };
@@ -18,7 +18,6 @@
 		D6F3AD2C28F7F0FE00EF55B1 /* CodeBaseUIPracticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F3AD2B28F7F0FE00EF55B1 /* CodeBaseUIPracticeTests.swift */; };
 		D6F3AD3628F7F0FE00EF55B1 /* CodeBaseUIPracticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F3AD3528F7F0FE00EF55B1 /* CodeBaseUIPracticeUITests.swift */; };
 		D6F3AD3828F7F0FE00EF55B1 /* CodeBaseUIPracticeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F3AD3728F7F0FE00EF55B1 /* CodeBaseUIPracticeUITestsLaunchTests.swift */; };
-		D6F3AD4628F7F28D00EF55B1 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = D6F3AD4528F7F28D00EF55B1 /* .swiftlint.yml */; };
 		D6F3AD4E28F7F80700EF55B1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D6F3AD4D28F7F80700EF55B1 /* SnapKit */; };
 		D6F3AD5028F7F84D00EF55B1 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F3AD4F28F7F84D00EF55B1 /* SecondViewController.swift */; };
 		D6F3AD552902719700EF55B1 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F3AD542902719700EF55B1 /* CustomCell.swift */; };
@@ -53,8 +52,8 @@
 /* Begin PBXFileReference section */
 		D60A8CD9290774AD00713DE3 /* CodeBaseUIPractice.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CodeBaseUIPractice.entitlements; sourceTree = "<group>"; };
 		D60A8CDA290779CF00713DE3 /* KeychainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainRepository.swift; sourceTree = "<group>"; };
-		D60A8CDC29077B2400713DE3 /* GoogleService-Info (1).plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info (1).plist"; path = "../../../Downloads/GoogleService-Info (1).plist"; sourceTree = "<group>"; };
 		D60A8CDE29077D3300713DE3 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		D60A8CE02907D34A00713DE3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D6F3AD1128F7F0FD00EF55B1 /* CodeBaseUIPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeBaseUIPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6F3AD1428F7F0FD00EF55B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6F3AD1628F7F0FD00EF55B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,7 +66,6 @@
 		D6F3AD3128F7F0FE00EF55B1 /* CodeBaseUIPracticeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeBaseUIPracticeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6F3AD3528F7F0FE00EF55B1 /* CodeBaseUIPracticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBaseUIPracticeUITests.swift; sourceTree = "<group>"; };
 		D6F3AD3728F7F0FE00EF55B1 /* CodeBaseUIPracticeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBaseUIPracticeUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		D6F3AD4528F7F28D00EF55B1 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		D6F3AD4F28F7F84D00EF55B1 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		D6F3AD542902719700EF55B1 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		D6F3AD562902770000EF55B1 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -132,14 +130,13 @@
 		D6F3AD1328F7F0FD00EF55B1 /* CodeBaseUIPractice */ = {
 			isa = PBXGroup;
 			children = (
-				D60A8CDC29077B2400713DE3 /* GoogleService-Info (1).plist */,
+				D60A8CE02907D34A00713DE3 /* GoogleService-Info.plist */,
 				D60A8CD9290774AD00713DE3 /* CodeBaseUIPractice.entitlements */,
 				D6F3AD1428F7F0FD00EF55B1 /* AppDelegate.swift */,
 				D6F3AD1628F7F0FD00EF55B1 /* SceneDelegate.swift */,
 				D6F3AD1828F7F0FD00EF55B1 /* ViewController.swift */,
 				D6F3AD6C29061CF200EF55B1 /* AppleLoginViewController.swift */,
 				D6F3AD4F28F7F84D00EF55B1 /* SecondViewController.swift */,
-				D6F3AD4528F7F28D00EF55B1 /* .swiftlint.yml */,
 				D6F3AD1D28F7F0FE00EF55B1 /* Assets.xcassets */,
 				D6F3AD1F28F7F0FE00EF55B1 /* LaunchScreen.storyboard */,
 				D6F3AD2228F7F0FE00EF55B1 /* Info.plist */,
@@ -288,10 +285,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6F3AD4628F7F28D00EF55B1 /* .swiftlint.yml in Resources */,
+				D60A8CE12907D34A00713DE3 /* GoogleService-Info.plist in Resources */,
 				D6F3AD2128F7F0FE00EF55B1 /* LaunchScreen.storyboard in Resources */,
 				D6F3AD1E28F7F0FE00EF55B1 /* Assets.xcassets in Resources */,
-				D60A8CDD29077B2400713DE3 /* GoogleService-Info (1).plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,7 +510,7 @@
 				CODE_SIGN_ENTITLEMENTS = CodeBaseUIPractice/CodeBaseUIPractice.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4QG3GC35LA;
+				DEVELOPMENT_TEAM = 2YJXRFH75A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CodeBaseUIPractice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -542,7 +538,7 @@
 				CODE_SIGN_ENTITLEMENTS = CodeBaseUIPractice/CodeBaseUIPractice.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4QG3GC35LA;
+				DEVELOPMENT_TEAM = 2YJXRFH75A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CodeBaseUIPractice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
