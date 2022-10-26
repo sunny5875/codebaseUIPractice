@@ -7,10 +7,12 @@
 
 import UIKit
 import AuthenticationServices
+import FirebaseAuth
 
 class SplashScreenViewController: UIViewController {
 
 
+    let repo = KeyChainRepository()
     
     private lazy var backgroundImageView: UIImageView = {
         let imageView = UIImageView()
@@ -18,15 +20,17 @@ class SplashScreenViewController: UIViewController {
         return imageView
     }()
     
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         addSubViews()
         setLayout()
         
-        checkAlreadySignIn()
+//        checkAlreadySignIn() //check native apple login
+        checkAlreadyFirebaseSignIn()
+        
+        let secondVC = AppleLoginViewController()
+        self.navigationController?.pushViewController(secondVC, animated: true)
     }
     
     func addSubViews() {
@@ -45,10 +49,9 @@ class SplashScreenViewController: UIViewController {
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         
         // 해당 ID의 애플로그인 확인
-        let keychainRepository = KeyChainRepository()
-        let userId = keychainRepository.readValueOnKeyChain(key: USER_IDENTIFIER_STRING) ?? ""
+        let userId = repo.readValueOnKeyChain(key: USER_IDENTIFIER_STRING) ?? ""
         
-        appleIDProvider.getCredentialState(forUserID: userId) { (credentialState, error) in
+        appleIDProvider.getCredentialState(forUserID: userId) { (credentialState, _) in
             DispatchQueue.main.async {
                 switch credentialState {
                 case .authorized:
@@ -76,6 +79,42 @@ class SplashScreenViewController: UIViewController {
         NotificationCenter.default.addObserver(forName: ASAuthorizationAppleIDProvider.credentialRevokedNotification, object: nil, queue: nil) { _ in
             print("Revoked Notification")
         }
+    }
+    
+    func checkAlreadyFirebaseSignIn() {
+        // Initialize a fresh Apple credential with Firebase.
+        let appleIdToken = repo.readValueOnKeyChain(key: APPLE_ID_TOKEN_STRING) ?? ""
+        let rawNonce = repo.readValueOnKeyChain(key: NONCE_STRING) ?? ""
+        
+        let credential = OAuthProvider.credential(
+          withProviderID: "apple.com",
+          idToken: appleIdToken,
+          rawNonce: rawNonce
+        )
+        
+        // Reauthenticate current Apple user with fresh Apple credential.
+        guard let user = Auth.auth().currentUser else {
+            let secondVC = AppleLoginViewController()
+            self.navigationController?.pushViewController(secondVC, animated: true)
+            return
+        }
+        print("=== user is already signIn ===")
+//        let secondVC = ViewController()
+        //          self.navigationController?.pushViewController(secondVC, animated: true)
+        
+//        user.reauthenticate(with: credential) { (authResult, error) in
+//          guard error != nil else {
+//              let secondVC = AppleLoginViewController()
+//              self.navigationController?.pushViewController(secondVC, animated: true)
+//              return
+//          }
+//          // Apple user successfully re-authenticated.
+//          print(authResult as Any)
+//          let secondVC = ViewController()
+//          self.navigationController?.pushViewController(secondVC, animated: true)
+//        }
+        
+     
     }
     
 

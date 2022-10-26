@@ -9,6 +9,8 @@ import Foundation
 
 // pincode, isTotalBalanceShow 저장
 let USER_IDENTIFIER_STRING = "userIdentifier"
+let APPLE_ID_TOKEN_STRING = "appleIdToken"
+let NONCE_STRING = "nonce"
 
 class KeyChainRepository {
     func addValueOnKeyChain(value: String, key: String) {

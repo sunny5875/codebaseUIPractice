@@ -64,6 +64,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "RxSwift + CodeBase Practice"
+        self.navigationItem.hidesBackButton = true
         setLayout()
         bind()
     }
