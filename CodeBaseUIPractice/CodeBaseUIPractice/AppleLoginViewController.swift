@@ -54,6 +54,14 @@ class AppleLoginViewController: UIViewController {
         textField.isSecureTextEntry = true
         return textField
     }()
+    
+    private lazy var passwordEyeButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "eye"), for: .normal)
+        button.addTarget(self, action: #selector(passwordEyeButtonTapped), for: .touchUpInside)
+        button.tintColor = .lightGray
+        return button
+    }()
     private lazy var textFieldStackView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [emailTextField, passwordTextField])
         view.axis = .vertical
@@ -61,6 +69,7 @@ class AppleLoginViewController: UIViewController {
         view.spacing = 16
         return view
     }()
+    
     private lazy var loginButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .systemBlue
@@ -173,7 +182,7 @@ class AppleLoginViewController: UIViewController {
     }
     
     func addSubViews() {
-        [logoNameLabel, textFieldStackView, loginButton, signUpButton, appleLoginButton, firebaseLoginStackView, spinnerView] // z스택처럼 쌓임
+        [logoNameLabel, textFieldStackView, passwordEyeButton, loginButton, signUpButton, appleLoginButton, firebaseLoginStackView, spinnerView] // z스택처럼 쌓임
             .forEach { self.view.addSubview($0) }
     }
     
@@ -191,6 +200,12 @@ class AppleLoginViewController: UIViewController {
         
         self.passwordTextField.snp.makeConstraints {
             $0.height.equalTo(56)
+        }
+        
+        self.passwordEyeButton.snp.makeConstraints {
+            $0.trailing.equalTo(self.passwordTextField.snp.trailing).inset(8)
+            $0.centerY.equalTo(self.passwordTextField.snp.centerY)
+            $0.width.height.equalTo(20)
         }
 
         self.textFieldStackView.snp.makeConstraints {
@@ -237,6 +252,16 @@ class AppleLoginViewController: UIViewController {
         
        
         
+    }
+    
+    
+    @objc func passwordEyeButtonTapped(_: UITapGestureRecognizer) {
+        passwordTextField.isSecureTextEntry.toggle()
+        passwordEyeButton.isSelected.toggle()
+        
+        let eyeImage = passwordEyeButton.isSelected ? "eye" : "eye.fill"
+        passwordEyeButton.setImage(UIImage(systemName: eyeImage), for: .normal)
+        passwordEyeButton.tintColor = .gray
     }
    
     
