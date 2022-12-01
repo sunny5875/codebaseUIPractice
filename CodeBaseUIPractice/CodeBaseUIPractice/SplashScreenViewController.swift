@@ -27,6 +27,18 @@ class SplashScreenViewController: UIViewController {
         setLayout()
         
 //        checkAlreadySignIn() //check native apple login
+        let user = Auth.auth().currentUser
+         print(user)
+        user?.delete { error in
+          if let error = error {
+            // An error happened.
+              print("delete error")
+          } else {
+            // Account deleted.
+              print("delete okay")
+          }
+        }
+        
         checkAlreadyFirebaseSignIn()
         
         let secondVC = AppleLoginViewController()
@@ -98,6 +110,7 @@ class SplashScreenViewController: UIViewController {
             self.navigationController?.pushViewController(secondVC, animated: true)
             return
         }
+        print(user)
         print("=== user is already signIn ===")
 //        let secondVC = ViewController()
         //          self.navigationController?.pushViewController(secondVC, animated: true)

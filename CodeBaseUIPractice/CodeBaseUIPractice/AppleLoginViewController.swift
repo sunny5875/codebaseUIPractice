@@ -8,13 +8,15 @@
 import UIKit
 import SnapKit
 import SwiftUI
-import AuthenticationServices
 
+import AuthenticationServices
 import FirebaseAuth
 import CryptoKit
 
 import FirebaseCore
 import GoogleSignIn
+
+import JWTDecode
 
 class AppleLoginViewController: UIViewController {
     // Unhashed nonce.
@@ -412,25 +414,34 @@ extension AppleLoginViewController: ASAuthorizationControllerDelegate {
             switch authorization.credential {
             case let credential as ASAuthorizationAppleIDCredential:
                
-//               let idToken = credential.identityToken! // JSON web token, 안전하게 app과 통신
-//               let tokeStr = String(data: idToken, encoding: .utf8)
-//               print("identitiyToken: ", tokeStr as Any)
-//
-//               guard let code = credential.authorizationCode else { return } // server와 통신하는 토큰
-//               let codeStr = String(data: code, encoding: .utf8)
-//               print("authorizationCode :", codeStr as Any)
-//
-//               // user의 정보 : 최초 로그인에서만 이름과 이메일을 받을 수 있고 그 후에는 ID값만 리턴
-//               let user = credential.user
-//               let fullName = credential.fullName
-//               let email = credential.email
-//
-//               print("username:", user)
-//               print("fullname: ", fullName as Any)
-//               print("email: ", email as Any)
-//
-//               // save in keychain
-//               repo.addValueOnKeyChain(value: user, key: USER_IDENTIFIER_STRING)
+               let idToken = credential.identityToken! // JSON web token, 안전하게 app과 통신
+               let tokeStr = String(data: idToken, encoding: .utf8)
+               print("identitiyToken: ", tokeStr as Any)
+                
+                do {
+                    let jwt = try decode(jwt: tokeStr ?? "")
+                    print(jwt)
+                    if let email = jwt["email"].string {
+                        print("Email is \(email)")
+                    }
+                } catch let error {
+                    print(error.localizedDescription)
+                }
+               guard let code = credential.authorizationCode else { return } // server와 통신하는 토큰
+               let codeStr = String(data: code, encoding: .utf8)
+               print("authorizationCode :", codeStr as Any)
+
+               // user의 정보 : 최초 로그인에서만 이름과 이메일을 받을 수 있고 그 후에는 ID값만 리턴
+               let user = credential.user
+               let fullName = credential.fullName
+               let email = credential.email
+
+               print("username:", user)
+               print("fullname: ", fullName as Any)
+               print("email: ", email as Any)
+
+               // save in keychain
+               repo.addValueOnKeyChain(value: user, key: USER_IDENTIFIER_STRING)
                 
                 // <--- firebase 에서의 처리 ---> //
                  guard let nonce = currentNonce else {
