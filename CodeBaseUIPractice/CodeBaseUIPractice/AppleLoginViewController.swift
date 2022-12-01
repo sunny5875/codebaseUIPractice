@@ -308,26 +308,30 @@ class AppleLoginViewController: UIViewController {
     @objc func firebaseGoogleSignInButtonTapped(_: UITapGestureRecognizer) {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
                let signInConfig = GIDConfiguration.init(clientID: clientID)
-               
+
              GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
                guard error == nil else { return }
 
                guard let authentication = user?.authentication else { return }
                let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken!, accessToken: authentication.accessToken)
                // access token 부여 받음
-               
+
                // 파베 인증정보 등록
                Auth.auth().signIn(with: credential) {result, error in
                    // token을 넘겨주면, 성공했는지 안했는지에 대한 result값과 error값을 넘겨줌
                    if error != nil {
-                       
+
                        print("🛑", error?.localizedDescription as Any)
                        return
                    }
                    print(result as Any)
+                   guard let email = Auth.auth().currentUser?.email else {return}
+                   print( email)
                }
              }
+        
     }
+
     
     @objc func firebaseAppleSignInButtonTapped(_: UITapGestureRecognizer) {
             startSignInWithAppleFlow()
@@ -471,6 +475,10 @@ extension AppleLoginViewController: ASAuthorizationControllerDelegate {
                     }
                     // User is signed in to Firebase with Apple.
                     print(authResult as Any)
+                    
+                    guard let email = Auth.auth().currentUser?.email else {return}
+                    print( email)
+                    
                     self.repo.addValueOnKeyChain(value: idTokenString, key: APPLE_ID_TOKEN_STRING)
                     self.repo.addValueOnKeyChain(value: nonce, key: NONCE_STRING)
                  
